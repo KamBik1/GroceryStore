@@ -8,17 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		8E4837372C63A87C00371293 /* GroceryStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4837362C63A87C00371293 /* GroceryStoreApp.swift */; };
-		8E4837392C63A87C00371293 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4837382C63A87C00371293 /* ContentView.swift */; };
+		8E4837392C63A87C00371293 /* FoodSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4837382C63A87C00371293 /* FoodSelectionView.swift */; };
 		8E48373B2C63A87D00371293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E48373A2C63A87D00371293 /* Assets.xcassets */; };
 		8E48373E2C63A87D00371293 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E48373D2C63A87D00371293 /* Preview Assets.xcassets */; };
+		8E4837492C63ACB900371293 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4837482C63ACB900371293 /* FoodModel.swift */; };
+		8E48374E2C63BD3300371293 /* FoodSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E48374D2C63BD3300371293 /* FoodSelectionViewModel.swift */; };
+		8E4837502C63BF6A00371293 /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E48374F2C63BF6A00371293 /* GridCell.swift */; };
+		8E4837522C6527E700371293 /* CellElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4837512C6527E700371293 /* CellElements.swift */; };
+		8E4837542C665D5B00371293 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4837532C665D5B00371293 /* ListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8E4837332C63A87C00371293 /* GroceryStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4837362C63A87C00371293 /* GroceryStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryStoreApp.swift; sourceTree = "<group>"; };
-		8E4837382C63A87C00371293 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8E4837382C63A87C00371293 /* FoodSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSelectionView.swift; sourceTree = "<group>"; };
 		8E48373A2C63A87D00371293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E48373D2C63A87D00371293 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8E4837482C63ACB900371293 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
+		8E48374D2C63BD3300371293 /* FoodSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSelectionViewModel.swift; sourceTree = "<group>"; };
+		8E48374F2C63BF6A00371293 /* GridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCell.swift; sourceTree = "<group>"; };
+		8E4837512C6527E700371293 /* CellElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellElements.swift; sourceTree = "<group>"; };
+		8E4837532C665D5B00371293 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +61,10 @@
 		8E4837352C63A87C00371293 /* GroceryStore */ = {
 			isa = PBXGroup;
 			children = (
-				8E4837362C63A87C00371293 /* GroceryStoreApp.swift */,
-				8E4837382C63A87C00371293 /* ContentView.swift */,
-				8E48373A2C63A87D00371293 /* Assets.xcassets */,
+				8E4837442C63ABE700371293 /* SystemFiles */,
+				8E4837472C63AC6900371293 /* Models */,
+				8E4837452C63AC0F00371293 /* Views */,
+				8E4837462C63AC2400371293 /* ViewModels */,
 				8E48373C2C63A87D00371293 /* Preview Content */,
 			);
 			path = GroceryStore;
@@ -65,6 +76,42 @@
 				8E48373D2C63A87D00371293 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8E4837442C63ABE700371293 /* SystemFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8E4837362C63A87C00371293 /* GroceryStoreApp.swift */,
+				8E48373A2C63A87D00371293 /* Assets.xcassets */,
+			);
+			path = SystemFiles;
+			sourceTree = "<group>";
+		};
+		8E4837452C63AC0F00371293 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8E4837382C63A87C00371293 /* FoodSelectionView.swift */,
+				8E48374F2C63BF6A00371293 /* GridCell.swift */,
+				8E4837532C665D5B00371293 /* ListCell.swift */,
+				8E4837512C6527E700371293 /* CellElements.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8E4837462C63AC2400371293 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8E48374D2C63BD3300371293 /* FoodSelectionViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8E4837472C63AC6900371293 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8E4837482C63ACB900371293 /* FoodModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +184,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E4837392C63A87C00371293 /* ContentView.swift in Sources */,
+				8E4837492C63ACB900371293 /* FoodModel.swift in Sources */,
+				8E48374E2C63BD3300371293 /* FoodSelectionViewModel.swift in Sources */,
+				8E4837392C63A87C00371293 /* FoodSelectionView.swift in Sources */,
+				8E4837542C665D5B00371293 /* ListCell.swift in Sources */,
 				8E4837372C63A87C00371293 /* GroceryStoreApp.swift in Sources */,
+				8E4837522C6527E700371293 /* CellElements.swift in Sources */,
+				8E4837502C63BF6A00371293 /* GridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
