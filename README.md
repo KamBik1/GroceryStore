@@ -21,5 +21,3 @@
 ## Результат
 
 <img src="https://github.com/KamBik1/GroceryStore/blob/main/Screenshots/Screenshot1.png" alt="Screenshot1" width="236" height="510"> <img src="https://github.com/KamBik1/GroceryStore/blob/main/Screenshots/Screenshot2.png" alt="Screenshot2" width="236" height="510">
-
-Локальное добавление в корзину не реализовано.
