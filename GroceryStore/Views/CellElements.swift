@@ -47,7 +47,7 @@ struct SpecialOfferView: View {
 
 struct ActionButtonsView: View {
     
-    @State var isHeartButtonTapped: Bool = false
+    @Binding var isHeartButtonTapped: Bool
     
     var body: some View {
         VStack(spacing: 0) {
@@ -310,8 +310,8 @@ struct BuyButtonView: View {
 
 struct CounterKilosView: View {
     
-    @State private var kilos: Double = 0.0
-    @State private var finalKiloPrice: Double = 0.0
+    @Binding var kilos: Double
+    @Binding var finalKiloPrice: Double
     @Binding var isBuyButtonSelected: Bool
     var pricePerKilo: Double
     
@@ -384,8 +384,8 @@ struct CounterKilosView: View {
 
 struct CounterAmountView: View {
     
-    @State private var amount: Int = 0
-    @State private var finalAmountPrice: Double = 0.0
+    @Binding var amount: Int
+    @Binding var finalAmountPrice: Double
     @Binding var isBuyButtonSelected: Bool
     var priceForOne: Double
     

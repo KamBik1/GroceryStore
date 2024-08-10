@@ -11,19 +11,39 @@ struct FoodSelectionView: View {
     
     @StateObject private var viewModel = FoodSelectionViewModel()
     
+    @State private var showFinalPrice: Bool = false
     @State private var isGridSelected: Bool = true
     
     var body: some View {
-        VStack (spacing: 0) {
+        
+        VStack(spacing: 0) {
             NavigationBarView(isGridSelected: $isGridSelected)
             Divider()
             if isGridSelected {
                 FoodGrid(viewModel: viewModel)
                     .padding(.top, 9)
+                    .padding(.bottom, showFinalPrice ? 80 : 0)
             } else {
                 FoodList(viewModel: viewModel)
+                    .padding(.bottom, showFinalPrice ? 80 : 0)
+                    
             }
-            Spacer()
+        }
+        .overlay(alignment: .bottom) {
+            if showFinalPrice {
+                CartView(viewModel: viewModel)
+                    .transition(.move(edge: .bottom))
+            }
+        }
+        .ignoresSafeArea(.all, edges: .bottom)
+        .onChange(of: viewModel.finalPrice) { _, newValue in
+            withAnimation {
+                if newValue != "0.0" {
+                    showFinalPrice = true
+                } else {
+                    showFinalPrice = false
+                }
+            }
         }
     }
 }
@@ -65,8 +85,8 @@ struct FoodGrid: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: [GridItem(.fixed(168), spacing: 7), GridItem(.fixed(168), spacing: 7)], spacing: 8) {
-                ForEach($viewModel.foodData, id: \.self) { foodData in
-                    GridCell(viewModel: viewModel, foodData: foodData)
+                ForEach($viewModel.foodData) { $food in
+                    GridCell(foodData: $food)
                 }
             }
         }
@@ -80,18 +100,11 @@ struct FoodList: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: [GridItem(.flexible())]) {
-                ForEach($viewModel.foodData, id: \.self) { foodData in
-                    ListCell(viewModel: viewModel, foodData: foodData)
+                ForEach($viewModel.foodData) { $food in
+                    ListCell(foodData: $food)
                     Divider()
                 }
             }
         }
     }
 }
-
-
-//#Preview {
-//    FoodSelectionView()
-//}
-
-

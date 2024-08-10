@@ -7,7 +7,7 @@
 import Foundation
 import SwiftUI
 
-struct Food: Hashable, Equatable {
+struct Food: Hashable, Equatable, Identifiable {
     let id: UUID = UUID()
     let title: String
     let image: String
@@ -25,4 +25,7 @@ struct Food: Hashable, Equatable {
     let amountReviews: String
     var finalAmountPrice: Double
     var finalKiloPrice: Double
+    var isBuyButtonSelected: Bool = false
+    var selectedOption: String = "Кг"
+    var isSelected: Bool = false
 }

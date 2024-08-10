@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E306D232C67A15100607299 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E306D222C67A15100607299 /* CartView.swift */; };
 		8E4837372C63A87C00371293 /* GroceryStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4837362C63A87C00371293 /* GroceryStoreApp.swift */; };
 		8E4837392C63A87C00371293 /* FoodSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4837382C63A87C00371293 /* FoodSelectionView.swift */; };
 		8E48373B2C63A87D00371293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E48373A2C63A87D00371293 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E306D222C67A15100607299 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		8E4837332C63A87C00371293 /* GroceryStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4837362C63A87C00371293 /* GroceryStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryStoreApp.swift; sourceTree = "<group>"; };
 		8E4837382C63A87C00371293 /* FoodSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSelectionView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				8E48374F2C63BF6A00371293 /* GridCell.swift */,
 				8E4837532C665D5B00371293 /* ListCell.swift */,
 				8E4837512C6527E700371293 /* CellElements.swift */,
+				8E306D222C67A15100607299 /* CartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				8E4837542C665D5B00371293 /* ListCell.swift in Sources */,
 				8E4837372C63A87C00371293 /* GroceryStoreApp.swift in Sources */,
 				8E4837522C6527E700371293 /* CellElements.swift in Sources */,
+				8E306D232C67A15100607299 /* CartView.swift in Sources */,
 				8E4837502C63BF6A00371293 /* GridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

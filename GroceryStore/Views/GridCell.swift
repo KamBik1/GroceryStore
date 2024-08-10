@@ -9,9 +9,6 @@ import SwiftUI
 
 struct GridCell: View {
     
-    @State private var selectedOption: String = "Кг"
-    @State private var isBuyButtonSelected: Bool = false
-    @ObservedObject var viewModel: FoodSelectionViewModel
     @Binding var foodData: Food
     
     var body: some View {
@@ -24,7 +21,7 @@ struct GridCell: View {
                     HStack(alignment: .top, spacing: 0) {
                         SpecialOfferView(offerText: foodData.specialOffer, offerColor: foodData.specialOfferColor)
                         Spacer()
-                        ActionButtonsView()
+                        ActionButtonsView(isHeartButtonTapped: $foodData.isSelected)
                     }
                     Spacer()
                     HStack(alignment: .bottom, spacing: 0) {
@@ -35,7 +32,6 @@ struct GridCell: View {
                 }
             }
             .frame(width: 168, height: 148)
-            
             
             // middle
             VStack(alignment: .leading, spacing: 0) {
@@ -49,8 +45,8 @@ struct GridCell: View {
             .frame(width: 168, height: 58)
             
             VStack(alignment: .leading, spacing: 0) {
-                if isBuyButtonSelected {
-                    SwitchView(selectedOption: $selectedOption)
+                if foodData.isBuyButtonSelected {
+                    SwitchView(selectedOption: $foodData.selectedOption)
                         .padding(.horizontal, 5)
                 }
             }
@@ -58,12 +54,12 @@ struct GridCell: View {
             
             // bottom
             HStack(spacing: 0) {
-                if isBuyButtonSelected {
-                    if selectedOption == "Кг" {
-                        CounterKilosView(isBuyButtonSelected: $isBuyButtonSelected, pricePerKilo: foodData.pricePerKilo)
+                if foodData.isBuyButtonSelected {
+                    if foodData.selectedOption == "Кг" {
+                        CounterKilosView(kilos: $foodData.amountInKilos, finalKiloPrice: $foodData.finalKiloPrice, isBuyButtonSelected: $foodData.isBuyButtonSelected, pricePerKilo: foodData.pricePerKilo)
                             .padding(4)
                     } else {
-                        CounterAmountView(isBuyButtonSelected: $isBuyButtonSelected, priceForOne: foodData.priceForOne)
+                        CounterAmountView(amount: $foodData.amount, finalAmountPrice: $foodData.finalAmountPrice, isBuyButtonSelected: $foodData.isBuyButtonSelected, priceForOne: foodData.priceForOne)
                             .padding(4)
                     }
                     
@@ -72,10 +68,9 @@ struct GridCell: View {
                         .padding(4)
                         .padding(.leading, 2)
                     Spacer()
-                    BuyButtonView(isBuyButtonSelected: $isBuyButtonSelected)
+                    BuyButtonView(isBuyButtonSelected: $foodData.isBuyButtonSelected)
                         .padding(4)
                 }
-                
             }
             .frame(width: 168, height: 44)
         }
@@ -89,6 +84,13 @@ struct GridCell: View {
                 topTrailingRadius: 16
             )
         )
+        .onChange(of: foodData.isBuyButtonSelected) { _, _ in
+            foodData.amountInKilos = 0.0
+            foodData.amount = 0
+            foodData.finalKiloPrice = 0.0
+            foodData.finalAmountPrice = 0.0
+            foodData.selectedOption = "Кг"
+        }
         .shadow(color: .shadow.opacity(0.2), radius: 8, x: 0, y: 0)
     }
 }

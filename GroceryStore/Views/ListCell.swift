@@ -9,9 +9,6 @@ import SwiftUI
 
 struct ListCell: View {
     
-    @State private var selectedOption: String = "Кг"
-    @State private var isBuyButtonSelected: Bool = false
-    @ObservedObject var viewModel: FoodSelectionViewModel
     @Binding var foodData: Food
     
     var body: some View {
@@ -57,29 +54,28 @@ struct ListCell: View {
                     .frame(height: 72)
                     
                     VStack {
-                        if isBuyButtonSelected {
-                            SwitchView(selectedOption: $selectedOption)
+                        if foodData.isBuyButtonSelected {
+                            SwitchView(selectedOption: $foodData.selectedOption)
                                 .padding(.horizontal, 5)
                         }
                     }
                     .frame(height: 28)
                     
                     HStack(spacing: 0) {
-                        if isBuyButtonSelected {
-                            if selectedOption == "Кг" {
-                                CounterKilosView(isBuyButtonSelected: $isBuyButtonSelected, pricePerKilo: foodData.pricePerKilo)
+                        if foodData.isBuyButtonSelected {
+                            if foodData.selectedOption == "Кг" {
+                                CounterKilosView(kilos: $foodData.amountInKilos, finalKiloPrice: $foodData.finalKiloPrice, isBuyButtonSelected: $foodData.isBuyButtonSelected, pricePerKilo: foodData.pricePerKilo)
                                     .padding(4)
                             } else {
-                                CounterAmountView(isBuyButtonSelected: $isBuyButtonSelected, priceForOne: foodData.priceForOne)
+                                CounterAmountView(amount: $foodData.amount, finalAmountPrice: $foodData.finalAmountPrice, isBuyButtonSelected: $foodData.isBuyButtonSelected, priceForOne: foodData.priceForOne)
                                     .padding(4)
                             }
-                            
                         } else {
                             PricesView(pricePerKilo: foodData.pricePerKilo, oldPrice: foodData.oldPrice)
                                 .padding(4)
                                 .padding(.leading, 4)
                             Spacer()
-                            BuyButtonView(isBuyButtonSelected: $isBuyButtonSelected)
+                            BuyButtonView(isBuyButtonSelected: $foodData.isBuyButtonSelected)
                                 .padding(4)
                         }
                     }
@@ -89,7 +85,7 @@ struct ListCell: View {
                 VStack(spacing: 0) {
                     HStack(spacing: 0) {
                         Spacer()
-                        ActionButtonsView()
+                        ActionButtonsView(isHeartButtonTapped: $foodData.isSelected)
                     }
                     Spacer()
                 }
@@ -101,5 +97,12 @@ struct ListCell: View {
         .frame(maxWidth: .infinity)
         .frame(height: 176)
         .background(.white)
+        .onChange(of: foodData.isBuyButtonSelected) { _, _ in
+            foodData.amountInKilos = 0.0
+            foodData.amount = 0
+            foodData.finalKiloPrice = 0.0
+            foodData.finalAmountPrice = 0.0
+            foodData.selectedOption = "Кг"
+        }
     }
 }
